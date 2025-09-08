@@ -1,9 +1,6 @@
 body {
   background: rgb(0, 0, 0);
-  background: radial-gradient(
-    circle,
-    rgb(171, 197, 157) 100%
-  );
+  background: radial-gradient(circle, rgb(171, 197, 157) 100%);
   font-family: Arial, sans-serif;
   text-align: center;
   margin-top: 50px;
@@ -82,4 +79,39 @@ li {
   text-decoration: line-through;
   color: gray;
   border: 1px solid gray;
+}
+
+/* New CSS for the progress bar */
+#progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#progress-container label {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+#task-progress {
+  width: 100%;
+  height: 25px;
+  -webkit-appearance: none; /* For Chrome, Safari, etc. */
+  appearance: none;
+  border-radius: 5px;
+}
+
+/* Style the progress bar itself (the track) */
+#task-progress::-webkit-progress-bar {
+  background-color: #5d5d5d;
+  border-radius: 5px;
+  border: 1px solid #333;
+}
+
+/* Style the filled portion of the progress bar */
+#task-progress::-webkit-progress-value {
+  background-color: #4caf50; /* A nice green color for progress */
+  border-radius: 5px;
+  transition: width 0.3s ease-in-out; /* Smooth transition when value changes */
 }

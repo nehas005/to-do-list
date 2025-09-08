@@ -63,4 +63,29 @@ function updateCounters() {
   uncompletedCounter.textContent = uncompletedTasks;
 }
 
+// Add this line with your other constant declarations at the top of the file
+const progressBar = document.getElementById("task-progress");
+
+// The existing updateCounters() function should now call the new updateProgressBar() function
+function updateCounters() {
+  const completedTasks = document.querySelectorAll(".completed").length;
+  const uncompletedTasks = document.querySelectorAll("li:not(.completed)").length;
+  const totalTasks = completedTasks + uncompletedTasks;
+
+  completedCounter.textContent = completedTasks;
+  uncompletedCounter.textContent = uncompletedTasks;
+
+  updateProgressBar(completedTasks, totalTasks);
+}
+
+// Add this new function to your script.js file
+function updateProgressBar(completed, total) {
+  if (total === 0) {
+    progressBar.value = 0; // Avoid division by zero
+  } else {
+    const percentage = (completed / total) * 100;
+    progressBar.value = percentage;
+  }
+}
+
 updateCounters();
